@@ -9,7 +9,7 @@ public class Clientes {
 
     @Id
     @GeneratedValue
-    private int cliente_id;
+    private Long cliente_id;
 
     private String nombre;
     private String email;
@@ -23,23 +23,12 @@ public class Clientes {
 
     }
 
-
-    //Relaciones
-    @OneToMany(mappedBy = "Reservas",cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Clientes> clientes ;
+    @OneToMany(mappedBy = "reservas_id",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Reservas> reservas ;
 
 
 
     public Clientes(){}
-
-
-    public int getIdCliente() {
-        return cliente_id;
-    }
-
-    public void setIdCliente(int cliente_id) {
-        this.cliente_id = cliente_id;
-    }
 
     public String getNombre() {
         return nombre;
@@ -63,6 +52,22 @@ public class Clientes {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public Long getCliente_id() {
+        return cliente_id;
+    }
+
+    public void setCliente_id(Long cliente_id) {
+        this.cliente_id = cliente_id;
+    }
+
+    public List<Reservas> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(List<Reservas> reservas) {
+        this.reservas = reservas;
     }
 }
 

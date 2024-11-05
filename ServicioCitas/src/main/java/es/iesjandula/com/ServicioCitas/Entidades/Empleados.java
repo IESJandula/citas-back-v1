@@ -11,7 +11,7 @@ public class Empleados {
 
     @Id
     @GeneratedValue
-    private int empleado_id;
+    private Long empleado_id;
 
     private String nombre;
     private String especialidad;
@@ -33,11 +33,11 @@ public class Empleados {
     }
     public Empleados() {}
 
-    public int getEmpleado_id() {
+    public Long getEmpleado_id() {
         return empleado_id;
     }
 
-    public void setEmpleado_id(int empleado_id) {
+    public void setEmpleado_id(Long empleado_id) {
         this.empleado_id = empleado_id;
     }
 
@@ -55,5 +55,21 @@ public class Empleados {
 
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
+    }
+
+    public List<Reservas> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(List<Reservas> reservas) {
+        this.reservas = reservas;
+    }
+
+    public List<Horarios> getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(List<Horarios> horarios) {
+        this.horarios = horarios;
     }
 }
