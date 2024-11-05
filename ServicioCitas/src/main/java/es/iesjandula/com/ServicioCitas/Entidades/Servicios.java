@@ -1,17 +1,70 @@
 package es.iesjandula.com.ServicioCitas.Entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Servicios {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long servicio_id;
 
     private String nombre;
     private Long duracion;
+    private double precio;
+
+    public Servicios(Long servicio_id, String nombre, Long duracion, double precio) {
+        this.servicio_id = servicio_id;
+        this.nombre = nombre;
+        this.duracion = duracion;
+        this.precio = precio;
+    }
+    public Servicios() {
+
+    }
+    @OneToMany(mappedBy = "servicios", cascade = CascadeType.ALL)
+    private List<Reservas> reserva;
+
+
+    public Long getServicio_id() {
+        return servicio_id;
+    }
+
+    public void setServicio_id(Long servicio_id) {
+        this.servicio_id = servicio_id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Long getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(Long duracion) {
+        this.duracion = duracion;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public List<Reservas> getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(List<Reservas> reserva) {
+        this.reserva = reserva;
+    }
 }
