@@ -20,7 +20,7 @@ public class Pagos {
     private LocalDate fecha_pago;
     private String metodo_pago;
 
-    public Pagos(Long pago_id, Reserva reserva, Double cantidad, LocalDate fecha_pago, String metodo_pago) {
+    public Pagos(Long pago_id, Reservas reserva, Double cantidad, LocalDate fecha_pago, String metodo_pago) {
         this.pago_id = pago_id;
         this.reserva = reserva;
         this.cantidad = cantidad;
@@ -39,11 +39,11 @@ public class Pagos {
         this.pago_id = pago_id;
     }
 
-    public Reserva getReserva() {
+    public Reservas getReserva() {
         return reserva;
     }
 
-    public void setReserva(Reserva reserva) {
+    public void setReserva(Reservas reserva) {
         this.reserva = reserva;
     }
 

@@ -20,11 +20,11 @@ public class Empleados {
     //Relaciones
 
 
-    @OneToMany(mappedBy = "Reservas",cascade = CascadeType.ALL,orphanRemoval = true);
-    private List<Empleados> empleados ;
+    @OneToMany(mappedBy = "reservas_id",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Reservas> reservas ;
 
-    @OneToMany(mappedBy = "Horarios",cascade = CascadeType.ALL,orphanRemoval = true);
-    private List<Empleados> empleados ;
+    @OneToMany(mappedBy = "horarios_id",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Horarios> horarios ;
 
 
     public Empleados(String nombre, String especialidad) {

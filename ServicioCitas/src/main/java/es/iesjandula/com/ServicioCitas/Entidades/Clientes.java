@@ -25,7 +25,7 @@ public class Clientes {
 
 
     //Relaciones
-    @OneToMany(mappedBy = "Reservas",cascade = CascadeType.ALL,orphanRemoval = true);
+    @OneToMany(mappedBy = "Reservas",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Clientes> clientes ;
 
 
@@ -65,4 +65,4 @@ public class Clientes {
         this.telefono = telefono;
     }
 }
-﻿
+
