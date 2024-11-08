@@ -2,6 +2,7 @@ package es.iesjandula.com.ServicioCitas.Servicios;
 
 import es.iesjandula.com.ServicioCitas.Entidades.Horarios;
 import es.iesjandula.com.ServicioCitas.Repositorios.RepositorioHorarios;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,7 @@ public class ServicioHorarios {
     @Autowired
     private RepositorioHorarios repositorioHorarios;
 
-    //Metodos CRUD
-
+    @Transactional
     public Horarios añadirHorario(Horarios horario) {
         return repositorioHorarios.save(horario);
 
@@ -28,6 +28,7 @@ public class ServicioHorarios {
         return repositorioHorarios.findById(id);
     }
 
+    @Transactional
     public Horarios cambiarHorario(Long id, Horarios horarioCambiado) {
         Horarios horario = repositorioHorarios.findById(id)
                 .orElseThrow(() -> new RuntimeException("No existe el horario"));
@@ -38,6 +39,7 @@ public class ServicioHorarios {
 
         return repositorioHorarios.save(horario);
     }
+    @Transactional
     public void eliminarHorario(Long id) {
        Horarios horaio = repositorioHorarios.findById(id)
                .orElseThrow(() -> new RuntimeException("No existe el horario"));
