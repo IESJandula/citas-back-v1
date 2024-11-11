@@ -18,6 +18,7 @@ public class ControladorHorarios {
     public List<Horarios> listaHorarios() {
         return repositorioHorarios.findAll();
     }
+
     @GetMapping("/buscar_id")
     public Horarios obtenerHorarios(@RequestParam Long id) {
         return repositorioHorarios.findById(id).orElseThrow(() -> new RuntimeException("No se encontro el horario"));
