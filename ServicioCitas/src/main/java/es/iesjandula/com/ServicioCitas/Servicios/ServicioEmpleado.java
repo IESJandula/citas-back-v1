@@ -43,8 +43,8 @@ public class ServicioEmpleado {
 
     //Mostrar empleados
     @Transactional
-    public List<Empleados> listarEmpleado(){
-        return repositorioEmpleado.findAll();
+    public Optional<Empleados> listarEmpleado(String nombre) {
+        return repositorioEmpleado.findByNombre(nombre);
     }
 
 
