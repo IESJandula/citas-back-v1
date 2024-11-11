@@ -28,16 +28,14 @@ public class Reservas {
     private LocalDate fecha;
     private LocalDateTime hora;
 
-    private String estado;
-
-    public Reservas(Long reserva_id, Clientes cliente, Empleados empleado, Servicios servicio, LocalDate fecha, LocalDateTime hora, String estado) {
+    public Reservas(Long reserva_id, Clientes cliente, Empleados empleado, Servicios servicio, LocalDate fecha, LocalDateTime hora) {
         this.reserva_id = reserva_id;
         this.cliente = cliente;
         this.empleado = empleado;
         this.servicio = servicio;
         this.fecha = fecha;
         this.hora = hora;
-        this.estado = estado;
+
     }
 
     public Long getReserva_id() {
@@ -86,14 +84,6 @@ public class Reservas {
 
     public void setHora(LocalDateTime hora) {
         this.hora = hora;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
 
     public Reservas() {

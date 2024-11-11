@@ -5,12 +5,10 @@ import java.time.LocalDateTime;
 
 public class ReservasDTO {
 
-    private Long cliente_id;
-    private Long empleado_id;
+    private Long cliente_id;;
     private Long servicio_id;
     private LocalDate fecha;
     private LocalDateTime hora;
-    private String estado;
 
     public Long getCliente_id() {
         return cliente_id;
@@ -18,14 +16,6 @@ public class ReservasDTO {
 
     public void setCliente_id(Long cliente_id) {
         this.cliente_id = cliente_id;
-    }
-
-    public Long getEmpleado_id() {
-        return empleado_id;
-    }
-
-    public void setEmpleado_id(Long empleado_id) {
-        this.empleado_id = empleado_id;
     }
 
     public Long getServicio_id() {
@@ -52,21 +42,11 @@ public class ReservasDTO {
         this.hora = hora;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public ReservasDTO(Long cliente_id, Long empleado_id, Long servicio_id, LocalDate fecha, LocalDateTime hora, String estado) {
+    public ReservasDTO(Long cliente_id, Long servicio_id, LocalDate fecha, LocalDateTime hora) {
         this.cliente_id = cliente_id;
-        this.empleado_id = empleado_id;
         this.servicio_id = servicio_id;
         this.fecha = fecha;
         this.hora = hora;
-        this.estado = estado;
     }
     
     
