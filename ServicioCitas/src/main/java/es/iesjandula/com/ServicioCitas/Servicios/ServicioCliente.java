@@ -39,9 +39,8 @@ public class ServicioCliente {
     }
 
     //Mostrar clientes
-    @Transactional
-    public List <Clientes> listarClientes(){
-        return repositorioCliente.findAll();
+    public Optional <Clientes> listarClientes(String email){
+        return repositorioCliente.findByEmail(email);
     }
 
 
