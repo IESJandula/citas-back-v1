@@ -26,15 +26,17 @@ public class Reservas {
     private Servicios servicio;
 
     private LocalDate fecha;
-    private LocalDateTime hora;
+    private LocalDateTime horaInicio;
+    private LocalDateTime horaFin;
 
-    public Reservas(Long reserva_id, Clientes cliente, Empleados empleado, Servicios servicio, LocalDate fecha, LocalDateTime hora) {
+    public Reservas(Long reserva_id, Clientes cliente, Empleados empleado, Servicios servicio, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin) {
         this.reserva_id = reserva_id;
         this.cliente = cliente;
         this.empleado = empleado;
         this.servicio = servicio;
         this.fecha = fecha;
-        this.hora = hora;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
 
     }
 
@@ -78,12 +80,21 @@ public class Reservas {
         this.fecha = fecha;
     }
 
-    public LocalDateTime getHora() {
-        return hora;
+
+    public LocalDateTime getHoraInicio() {
+        return horaInicio;
     }
 
-    public void setHora(LocalDateTime hora) {
-        this.hora = hora;
+    public void setHoraInicio(LocalDateTime horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public LocalDateTime getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(LocalDateTime horaFin) {
+        this.horaFin = horaFin;
     }
 
     public Reservas() {

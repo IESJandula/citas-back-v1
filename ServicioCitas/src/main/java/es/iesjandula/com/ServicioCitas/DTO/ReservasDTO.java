@@ -8,7 +8,8 @@ public class ReservasDTO {
     private Long cliente_id;;
     private Long servicio_id;
     private LocalDate fecha;
-    private LocalDateTime hora;
+    private LocalDateTime horaInicio;
+    private LocalDateTime horaFin;
 
     public Long getCliente_id() {
         return cliente_id;
@@ -34,19 +35,28 @@ public class ReservasDTO {
         this.fecha = fecha;
     }
 
-    public LocalDateTime getHora() {
-        return hora;
+    public LocalDateTime getHoraInicio() {
+        return horaInicio;
     }
 
-    public void setHora(LocalDateTime hora) {
-        this.hora = hora;
+    public void setHoraInicio(LocalDateTime horaInicio) {
+        this.horaInicio = horaInicio;
     }
 
-    public ReservasDTO(Long cliente_id, Long servicio_id, LocalDate fecha, LocalDateTime hora) {
+    public LocalDateTime getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(LocalDateTime horaFin) {
+        this.horaFin = horaFin;
+    }
+
+    public ReservasDTO(Long cliente_id, Long servicio_id, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin) {
         this.cliente_id = cliente_id;
         this.servicio_id = servicio_id;
         this.fecha = fecha;
-        this.hora = hora;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
     }
     
     
