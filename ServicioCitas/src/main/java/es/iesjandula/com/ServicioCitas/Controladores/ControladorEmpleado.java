@@ -17,7 +17,7 @@ public class ControladorEmpleado {
     private RepositorioEmpleado repositorioEmpleado;
 
     //Agregar empleado
-    @PostMapping("/Empleado/registro")
+    @PostMapping("/registro")
     public Empleados registrarempleado(@RequestBody Empleados empleado) {
         return servicioEmpleado.registrarEmpleado(empleado);
     }

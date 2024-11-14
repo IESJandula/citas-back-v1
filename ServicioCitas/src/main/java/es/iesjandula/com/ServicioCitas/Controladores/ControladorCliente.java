@@ -20,7 +20,7 @@ public class ControladorCliente {
     private RepositorioCliente repositorioCliente;
 
     //Agregar Clientes
-    @PostMapping("/Clientes/registro")
+    @PostMapping("/registro")
     public Clientes registrarCliente(@RequestBody Clientes cliente) {
         return servicioCliente.registrarCliente(cliente);
     }

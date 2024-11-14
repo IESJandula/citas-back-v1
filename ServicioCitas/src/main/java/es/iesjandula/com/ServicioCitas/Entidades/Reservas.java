@@ -1,9 +1,11 @@
 package es.iesjandula.com.ServicioCitas.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "reserva")
@@ -15,24 +17,21 @@ public class Reservas {
 
     @ManyToOne
     @JoinColumn(name ="cliente_id", nullable = false)
+    @JsonManagedReference
     private Clientes cliente;
 
     @ManyToOne
-    @JoinColumn(name ="empleado_id", nullable = false)
-    private Empleados empleado;
-
-    @ManyToOne
     @JoinColumn(name ="servicio_id", nullable = false)
+    @JsonManagedReference
     private Servicios servicio;
 
     private LocalDate fecha;
-    private LocalDateTime horaInicio;
-    private LocalDateTime horaFin;
+    private LocalTime horaInicio;
+    private LocalTime horaFin;
 
-    public Reservas(Long reserva_id, Clientes cliente, Empleados empleado, Servicios servicio, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin) {
+    public Reservas(Long reserva_id, Clientes cliente, Servicios servicio, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin) {
         this.reserva_id = reserva_id;
         this.cliente = cliente;
-        this.empleado = empleado;
         this.servicio = servicio;
         this.fecha = fecha;
         this.horaInicio = horaInicio;
@@ -56,14 +55,6 @@ public class Reservas {
         this.cliente = cliente;
     }
 
-    public Empleados getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(Empleados empleado) {
-        this.empleado = empleado;
-    }
-
     public Servicios getServicio() {
         return servicio;
     }
@@ -81,19 +72,19 @@ public class Reservas {
     }
 
 
-    public LocalDateTime getHoraInicio() {
+    public LocalTime getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(LocalDateTime horaInicio) {
+    public void setHoraInicio(LocalTime horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public LocalDateTime getHoraFin() {
+    public LocalTime getHoraFin() {
         return horaFin;
     }
 
-    public void setHoraFin(LocalDateTime horaFin) {
+    public void setHoraFin(LocalTime horaFin) {
         this.horaFin = horaFin;
     }
 

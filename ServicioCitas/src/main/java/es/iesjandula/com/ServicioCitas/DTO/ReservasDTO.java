@@ -2,14 +2,15 @@ package es.iesjandula.com.ServicioCitas.DTO;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class ReservasDTO {
 
-    private Long cliente_id;;
+    private Long cliente_id;
     private Long servicio_id;
     private LocalDate fecha;
-    private LocalDateTime horaInicio;
-    private LocalDateTime horaFin;
+    private LocalTime horaInicio;
+    private LocalTime horaFin;
 
     public Long getCliente_id() {
         return cliente_id;
@@ -35,23 +36,23 @@ public class ReservasDTO {
         this.fecha = fecha;
     }
 
-    public LocalDateTime getHoraInicio() {
+    public LocalTime getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(LocalDateTime horaInicio) {
+    public void setHoraInicio(LocalTime horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public LocalDateTime getHoraFin() {
+    public LocalTime getHoraFin() {
         return horaFin;
     }
 
-    public void setHoraFin(LocalDateTime horaFin) {
+    public void setHoraFin(LocalTime horaFin) {
         this.horaFin = horaFin;
     }
 
-    public ReservasDTO(Long cliente_id, Long servicio_id, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin) {
+    public ReservasDTO(Long cliente_id, Long servicio_id, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin) {
         this.cliente_id = cliente_id;
         this.servicio_id = servicio_id;
         this.fecha = fecha;

@@ -10,7 +10,7 @@ public class Empleados {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long empleado_id;
 
     private String nombre;
@@ -19,11 +19,7 @@ public class Empleados {
 
     //Relaciones
 
-
-    @OneToMany(mappedBy = "reservas_id",cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Reservas> reservas ;
-
-    @OneToMany(mappedBy = "horarios_id",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "empleado",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Horarios> horarios ;
 
 
@@ -55,14 +51,6 @@ public class Empleados {
 
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
-    }
-
-    public List<Reservas> getReservas() {
-        return reservas;
-    }
-
-    public void setReservas(List<Reservas> reservas) {
-        this.reservas = reservas;
     }
 
     public List<Horarios> getHorarios() {

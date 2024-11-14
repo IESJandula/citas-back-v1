@@ -1,5 +1,6 @@
 package es.iesjandula.com.ServicioCitas.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public class Clientes {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cliente_id;
 
     private String nombre;
@@ -23,10 +24,9 @@ public class Clientes {
 
     }
 
-    @OneToMany(mappedBy = "reservas_id",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,orphanRemoval = true)
+    @JsonBackReference
     private List<Reservas> reservas ;
-
-
 
     public Clientes(){}
 
