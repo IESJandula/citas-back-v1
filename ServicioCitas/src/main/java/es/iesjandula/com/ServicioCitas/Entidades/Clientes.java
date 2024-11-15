@@ -1,6 +1,7 @@
 package es.iesjandula.com.ServicioCitas.Entidades;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class Clientes {
     }
 
     @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,orphanRemoval = true)
-    @JsonBackReference
+    @JsonIgnore
     private List<Reservas> reservas ;
 
     public Clientes(){}
@@ -69,5 +70,7 @@ public class Clientes {
     public void setReservas(List<Reservas> reservas) {
         this.reservas = reservas;
     }
+
+
 }
 

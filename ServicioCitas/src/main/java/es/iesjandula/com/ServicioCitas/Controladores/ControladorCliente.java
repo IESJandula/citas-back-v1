@@ -8,6 +8,7 @@ import es.iesjandula.com.ServicioCitas.Servicios.ServicioCliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -48,6 +49,11 @@ public class ControladorCliente {
 
         return repositorioCliente.save(cliente);
 
+    }
+
+    @GetMapping
+    public List<Clientes> listarClientes() {
+        return repositorioCliente.findAll();
     }
 
 

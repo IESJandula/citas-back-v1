@@ -20,7 +20,7 @@ public class ControladorReservas {
     @Autowired
     private ServicioReservas servicioReservas;
 
-    @GetMapping
+    @GetMapping()
     public List<Reservas> listaReservas() {
       return  repositorioReservas.findAll();
     }

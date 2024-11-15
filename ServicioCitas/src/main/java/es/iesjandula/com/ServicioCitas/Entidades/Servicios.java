@@ -1,6 +1,7 @@
 package es.iesjandula.com.ServicioCitas.Entidades;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class Servicios {
 
     }
     @OneToMany(mappedBy = "servicio", cascade = CascadeType.ALL)
-    @JsonBackReference
+    @JsonIgnore
     private List<Reservas> reserva;
 
 
