@@ -8,19 +8,12 @@ import java.util.List;
 @Entity
 public class Empleados {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long empleado_id;
 
     private String nombre;
     private String especialidad;
-
-
-    //Relaciones
-
-    @OneToMany(mappedBy = "empleado",cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Horarios> horarios ;
 
 
     public Empleados(String nombre, String especialidad) {
@@ -53,11 +46,4 @@ public class Empleados {
         this.especialidad = especialidad;
     }
 
-    public List<Horarios> getHorarios() {
-        return horarios;
-    }
-
-    public void setHorarios(List<Horarios> horarios) {
-        this.horarios = horarios;
-    }
 }

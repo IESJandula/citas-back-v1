@@ -1,16 +1,13 @@
 package es.iesjandula.com.ServicioCitas.DTO;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 public class ReservasDTO {
 
     private Long cliente_id;
     private Long servicio_id;
     private LocalDate fecha;
-    private LocalTime horaInicio;
-    private LocalTime horaFin;
+    private String horaSeleccionada; // Cambiamos esto para que el cliente elija una hora
 
     public Long getCliente_id() {
         return cliente_id;
@@ -36,29 +33,14 @@ public class ReservasDTO {
         this.fecha = fecha;
     }
 
-    public LocalTime getHoraInicio() {
-        return horaInicio;
+    public String getHoraSeleccionada() {
+        return horaSeleccionada;
     }
 
-    public void setHoraInicio(LocalTime horaInicio) {
-        this.horaInicio = horaInicio;
+    public void setHoraSeleccionada(String horaSeleccionada) {
+        this.horaSeleccionada = horaSeleccionada;
     }
 
-    public LocalTime getHoraFin() {
-        return horaFin;
-    }
-
-    public void setHoraFin(LocalTime horaFin) {
-        this.horaFin = horaFin;
-    }
-
-    public ReservasDTO(Long cliente_id, Long servicio_id, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin) {
-        this.cliente_id = cliente_id;
-        this.servicio_id = servicio_id;
-        this.fecha = fecha;
-        this.horaInicio = horaInicio;
-        this.horaFin = horaFin;
-    }
-    
-    
 }
+
+

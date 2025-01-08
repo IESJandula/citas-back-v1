@@ -1,17 +1,14 @@
-package es.iesjandula.com.ServicioCitas.Entidades;
+package es.iesjandula.com.ServicioCitas.DTO;
 
-import jakarta.persistence.Embeddable;
 import java.time.LocalTime;
 
-@Embeddable
-public class Horarios {
+public class HorarioDTO {
 
     private LocalTime hora;
     private boolean disponible;
 
-    public Horarios() {}
-
-    public Horarios(LocalTime hora, boolean disponible) {
+    // Constructor, getters y setters
+    public HorarioDTO(LocalTime hora, boolean disponible) {
         this.hora = hora;
         this.disponible = disponible;
     }

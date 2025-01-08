@@ -70,7 +70,6 @@ public class Clientes {
     public void setReservas(List<Reservas> reservas) {
         this.reservas = reservas;
     }
-
-
+    
 }
 

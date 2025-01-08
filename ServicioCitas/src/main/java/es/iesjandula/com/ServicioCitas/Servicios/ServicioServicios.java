@@ -44,4 +44,8 @@ public class ServicioServicios {
         return repositorioServicios.save(servicio);
 
     }
+
+    public Servicios buscarServicioPorId(Long id) {
+        return repositorioServicios.findById(id).orElse(null);  // Retorna null si no se encuentra
+    }
 }

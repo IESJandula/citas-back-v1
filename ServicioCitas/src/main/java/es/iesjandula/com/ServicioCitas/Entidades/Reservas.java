@@ -1,11 +1,9 @@
 package es.iesjandula.com.ServicioCitas.Entidades;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 @Table(name = "reserva")
@@ -13,38 +11,41 @@ public class Reservas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long reserva_id;
+    private Long reservaId;
 
     @ManyToOne
-    @JoinColumn(name ="cliente_id", nullable = false)
-    @JsonManagedReference
+    @JoinColumn(name = "cliente_id", nullable = false)
     private Clientes cliente;
 
     @ManyToOne
-    @JoinColumn(name ="servicio_id", nullable = false)
-    @JsonManagedReference
+    @JoinColumn(name = "servicio_id", nullable = false)
     private Servicios servicio;
 
     private LocalDate fecha;
-    private LocalTime horaInicio;
-    private LocalTime horaFin;
 
-    public Reservas(Long reserva_id, Clientes cliente, Servicios servicio, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin) {
-        this.reserva_id = reserva_id;
-        this.cliente = cliente;
-        this.servicio = servicio;
-        this.fecha = fecha;
-        this.horaInicio = horaInicio;
-        this.horaFin = horaFin;
+    private LocalTime horario;
 
+    @ElementCollection
+    @CollectionTable(name = "horarios_reserva", joinColumns = @JoinColumn(name = "reserva_id"))
+    @Column(name = "hora")
+    private List<String> horasDisponibles;  // Lista de horas disponibles
+
+    @ElementCollection
+    @CollectionTable(name = "horarios_reserva_estado", joinColumns = @JoinColumn(name = "reserva_id"))
+    @Column(name = "disponible")
+    private List<Boolean> horasDisponiblesEstado;  // Lista de estados (disponible/no disponible)
+
+    // Constructor vacío
+    public Reservas() {
     }
 
-    public Long getReserva_id() {
-        return reserva_id;
+    // Getters y setters
+    public Long getReservaId() {
+        return reservaId;
     }
 
-    public void setReserva_id(Long reserva_id) {
-        this.reserva_id = reserva_id;
+    public void setReservaId(Long reservaId) {
+        this.reservaId = reservaId;
     }
 
     public Clientes getCliente() {
@@ -71,23 +72,56 @@ public class Reservas {
         this.fecha = fecha;
     }
 
-
-    public LocalTime getHoraInicio() {
-        return horaInicio;
+    public List<String> getHorasDisponibles() {
+        return horasDisponibles;
     }
 
-    public void setHoraInicio(LocalTime horaInicio) {
-        this.horaInicio = horaInicio;
+    public void setHorasDisponibles(List<String> horasDisponibles) {
+        this.horasDisponibles = horasDisponibles;
     }
 
-    public LocalTime getHoraFin() {
-        return horaFin;
+    // Nuevos métodos para manejar el estado de las horas
+    public List<Boolean> getHorasDisponiblesEstado() {
+        return horasDisponiblesEstado;
     }
 
-    public void setHoraFin(LocalTime horaFin) {
-        this.horaFin = horaFin;
+    public void setHorasDisponiblesEstado(List<Boolean> horasDisponiblesEstado) {
+        this.horasDisponiblesEstado = horasDisponiblesEstado;
     }
 
-    public Reservas() {
+    // Métodos adicionales para gestionar la disponibilidad de horas
+    public void marcarHoraComoReservada(String hora) {
+        int index = horasDisponibles.indexOf(hora);
+        if (index >= 0) {
+            horasDisponiblesEstado.set(index, false); // Marca la hora como no disponible
+        }
     }
+
+    public void marcarHoraComoDisponible(String hora) {
+        int index = horasDisponibles.indexOf(hora);
+        if (index >= 0) {
+            horasDisponiblesEstado.set(index, true); // Marca la hora como disponible
+        }
+    }
+
+    public LocalTime getHorario() {
+        return horario;
+    }
+
+    public void setHorario(LocalTime horario) {
+        this.horario = horario;
+    }
+
+    public void setClienteNombre(String nombre) {
+        if (this.cliente == null) {
+            this.cliente = new Clientes();  // Asegúrate de que el cliente esté inicializado
+        }
+        this.cliente.setNombre(nombre);  // Asigna el nombre al cliente
+    }
+
 }
+
+
+
+
+

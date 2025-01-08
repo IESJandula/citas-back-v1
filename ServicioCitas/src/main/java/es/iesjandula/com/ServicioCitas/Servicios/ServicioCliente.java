@@ -62,7 +62,10 @@ public class ServicioCliente {
         return repositorioCliente.save(clienteExistente);
     }
 
-
-
+    public Clientes buscarClientePorId(Long clienteId) {
+        // Buscar el cliente por ID en el repositorio
+        return repositorioCliente.findById(clienteId)
+                .orElse(null); // Si el cliente no se encuentra, devuelve null
+    }
 
 }
